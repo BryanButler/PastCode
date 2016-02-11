@@ -1,0 +1,86 @@
+package summervaleresort;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class SummerValeRsrt {
+
+    String[] aryrooms = {"Penthouse", "Economy"};
+    String[] arymealchoices = {"3 meals", "2 meals", "1 meal"};
+    String[] arymeallevelchoices = {"Luxary", "Moderate", "Basic"};
+    JComboBox cmbrooms = new JComboBox(aryrooms);
+    JComboBox cmbmealchoices = new JComboBox(arymealchoices);
+    JComboBox cmbmeallevelchoices = new JComboBox(arymeallevelchoices);
+    JButton btncalculate = new JButton("Calculate");
+    JLabel lblfinalprice = new JLabel();
+
+    public SummerValeRsrt() {
+        frame();
+    }
+
+    public void frame() {
+        JFrame frmmain = new JFrame("Welcome to Summervale");
+        frmmain.setVisible(true);
+        frmmain.setSize(600, 600);
+        frmmain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmmain.setLayout(new FlowLayout());
+        
+        JPanel pnlmain = new JPanel();
+        pnlmain.add(cmbrooms);
+        pnlmain.add(cmbmealchoices);
+        pnlmain.add(cmbmeallevelchoices);
+        pnlmain.add(btncalculate);
+        pnlmain.add(lblfinalprice);
+        frmmain.add(pnlmain);
+        btncalculate.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                int x = cmbrooms.getSelectedIndex();
+            int y = cmbmealchoices.getSelectedIndex();
+            int z = cmbmeallevelchoices.getSelectedIndex();
+            double roomprice = 0, mealprice = 0, mealmodifier = 0,finalprice = 0;
+            double[] aryroomprices = {450, 300};
+            double[] arymealprices = {60, 40, 20};
+            double[] arymealmodifier = {3, 2, 1};
+
+            switch (x) {
+                case 0:
+                    roomprice = aryroomprices[x];
+                    break;
+                case 1:
+                    roomprice = aryroomprices[x];
+                    break;
+
+            }
+            switch (z) {
+                case 0:
+                    mealmodifier = arymealmodifier[z];
+                    break;
+                case 1:
+                    mealmodifier = arymealmodifier[z];
+                    break;
+                case 2:
+                    mealmodifier = arymealmodifier[z];
+                    break;
+            }
+            switch (y) {
+                case 0:
+                    mealprice = mealmodifier * arymealprices[y];
+                    break;
+                case 1:
+                    mealprice = mealmodifier * arymealprices[y];
+                    break;
+                case 2:
+                    mealprice = mealmodifier * arymealprices[y];
+                    break;
+            }
+            finalprice = mealprice+roomprice;
+            lblfinalprice.setText(String.valueOf(finalprice));
+            }
+            
+        });
+
+    }
+}

@@ -1,0 +1,41 @@
+ng-show="store.product.canPurchase"
+
+ng-show = "!store"
+ng-hide= "store.product.soldout"
+
+ng-repeat="product in store.products"
+
+
+
+
+
+
+
+
+
+
+directive controler name then value
+
+
+Pipe things into a filter like this ( data* | filter)
+
+filetrs include uppercase limitto
+
+you can add an array inside a product to add images to each product such as full picture and thumbnail.
+
+
+
+To do images you need ng-src
+
+ul class="nav nav-pills"
+
+
+li a href ng-click = "tab = 1"
+
+use ng-show"tab===3"
+
+ng-init="tab-1"
+<li ng-class="{ active:tab === 2 }" >
+
+panel . select tab(1)
+

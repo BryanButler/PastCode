@@ -1,0 +1,259 @@
+
+package jdissappearingfriends;
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class JDissappearingFriends {
+
+
+    public static void main(String[] args) {
+       jframez firstframe = new jframez();
+    }
+    
+}
+-------------------------------------------------
+
+package jdissappearingfriends;
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class jframez extends JFrame implements ActionListener{
+    int numberofclicks = 0;
+    final int WIDTH = 900, HEIGHT = 900;
+    JButton button = new JButton("Eliminate Friends");
+    JLabel Sam = new JLabel("Sam Lee");
+    JLabel James = new JLabel("James McElwain");
+    JLabel Nick = new JLabel("Nick Harrington");
+    JLabel Luke = new JLabel("Lucas Kottwitz");
+    JLabel Jake = new JLabel("Jake Marquardt"); 
+    jframez()
+    {
+        super("Look, my friends");
+        setSize(WIDTH,HEIGHT);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+        add(Sam);
+        add(James);
+        add(Nick);
+        add(Luke);
+        add(Jake);
+        add(button);
+        button.addActionListener(this);
+        setVisible(true);
+        
+    }
+    public void actionPerformed(ActionEvent e)
+    {
+        if (numberofclicks < 5)
+            ++numberofclicks;
+        switch (numberofclicks) {
+            case 1: Sam.setText("");
+                break;
+            case 2: James.setText("");  
+                break;
+            case 3: Luke.setText("");
+                break;
+            case 4: Jake.setText("");
+                break;
+            case 5: Nick.setText("");
+                break;
+        }
+    }
+}
+_________________________________________________
+
+package jpizza;
+
+
+public class JPizza {
+
+
+    public static void main(String[] args) {
+        PizzaPriceCalculationWindow firstframe = new PizzaPriceCalculationWindow();
+    }
+    
+}
+---------------------------------------------------
+package jpizza;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class PizzaPriceCalculationWindow extends JFrame {
+
+    final int WIDTH = 500, HEIGHT = 500;
+
+    String[] pizzasizez = {"Small", "Medium", "Large"};
+    int[] pizzaprices = {9, 11, 13};
+    JCheckBox cheese = new JCheckBox("cheese", true);
+    JCheckBox peperoni = new JCheckBox("peperoni", false);
+    JCheckBox sausage = new JCheckBox("sausage", false);
+    JCheckBox bacon = new JCheckBox("bacon", false);
+    JCheckBox ham = new JCheckBox("ham", false);
+    JCheckBox Blood = new JCheckBox("Blood of your enemies", false);
+    JPanel p = new JPanel();
+    JComboBox c = new JComboBox(pizzasizez);
+    JLabel finalprice = new JLabel();
+    JButton Calc = new JButton ("Calculate Price");
+
+    public PizzaPriceCalculationWindow() {
+        frame();
+    }
+
+    public void frame() {
+        JFrame pizzaframe = new JFrame("Pizza Man");
+        pizzaframe.setVisible(true);
+        pizzaframe.setSize(WIDTH, HEIGHT);
+        pizzaframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        pizzaframe.setLayout(new FlowLayout());
+        JPanel slate = new JPanel();
+        slate.add(c);
+        pizzaframe.add(slate);
+
+        pizzaframe.add(cheese);
+        pizzaframe.add(peperoni);
+        pizzaframe.add(sausage);
+        pizzaframe.add(bacon);
+        pizzaframe.add(ham);
+        pizzaframe.add(Blood);
+        event ischecked = new event();
+        cheese.addItemListener(ischecked);
+        peperoni.addItemListener(ischecked);
+        sausage.addItemListener(ischecked);
+        bacon.addItemListener(ischecked);
+        ham.addItemListener(ischecked);
+        Blood.addItemListener(ischecked);
+        pizzaframe.add(finalprice);
+        
+        
+    }
+
+
+    public class event implements ItemListener {
+
+        public void itemStateChanged(ItemEvent ischecked) {
+            int pizzaprice = 0,finalpizzaprice = 0;
+            int x = c.getSelectedIndex()+1,y=0;
+            
+            if (peperoni.isSelected()) 
+                y=y+1;
+            if (sausage.isSelected())
+                y=y+1;
+            if (bacon.isSelected())
+                y=y+1;
+            if (ham.isSelected())
+                y=y+1;
+            if (Blood.isSelected())
+                y=y+1;
+            switch (x) {
+                case 1:
+                    pizzaprice = 9;
+                    break;
+                case 2:
+                    pizzaprice = 11;
+                    break;
+                case 3:
+                    pizzaprice = 13;
+                    break;
+            }
+            finalpizzaprice  = pizzaprice + y;
+            finalprice.setText(String.valueOf(finalpizzaprice));
+            
+        }
+    }
+}
+___________________________________________________________________
+
+package number7;
+
+
+public class Number7 {
+
+    
+    public static void main(String[] args) {
+        Cities firstframe = new Cities();
+    }
+    
+}
+---------------------------------------------------------------
+
+package number7;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Cities extends JFrame {
+    String[] cities = {"Baltimore","Atlanta","Denver","State College","Scranton","Philidelphia","Seattle"};
+    JPanel panel = new JPanel();
+    JComboBox combocities = new JComboBox(cities);
+    JLabel population = new JLabel();
+    JButton button = new JButton("Calculate Population");
+    
+    public Cities()
+    {
+        frame();
+    }
+    
+public void frame()
+{
+    JFrame Cities = new JFrame("Cities and Population");
+    Cities.setVisible(true);
+    Cities.setSize(400, 400);
+    Cities.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    Cities.setLayout(new FlowLayout());
+   
+    panel.add(combocities);
+    Cities.add(panel);
+    Cities.add(button);
+    event isclicked = new event();
+    button.addActionListener(isclicked);
+    Cities.add(population);
+    
+    
+}
+public class event implements ActionListener{
+    public void actionPerformed(ActionEvent isclicked)
+    {
+        int x = combocities.getSelectedIndex()+1;
+        int populationz = 0;
+        
+        switch (x){
+            case 1:
+                populationz = 10000;
+                break;
+            case 2:
+                populationz = 20000;
+                break;
+            case 3:
+                populationz = 30000;
+                break;
+            case 4:
+                populationz = 40000;
+                break;
+            case 5:
+                populationz = 50000;
+                break;
+            case 6:
+                populationz = 60000;
+                break;
+            case 7:
+                populationz = 70000;
+                break;
+        }
+                
+            population.setText(String.valueOf(populationz));
+        }
+    }
+}
+
+
+
+}
+________________________________________________________________________________

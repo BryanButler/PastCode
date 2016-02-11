@@ -1,0 +1,201 @@
+
+package testessy1school;
+
+
+public class TestEssy1School {
+
+
+    public static void main(String[] args) {
+     Building school = new School(3500,50,35,"Middle School");
+     Building house = new House (2000.0,8,4,3.5);
+     house.display();
+     school.display();
+    }
+    
+}
+----------------------------------------------------------------------
+
+package testessy1school;
+
+
+public abstract class Building {
+    double squarefeet;
+    int numberofrooms;
+    public double getsquarefeet()
+    {
+        return squarefeet;
+    }
+    public int getnumberofrooms()
+    {
+        return numberofrooms;
+    }
+    Building(double squarefeet, int numberofrooms)
+    {
+        this.squarefeet = squarefeet;
+        this.numberofrooms = numberofrooms;
+    }
+   public void display()
+   {
+       System.out.println("Square Feet: "+squarefeet+"\nNumber of Rooms: " +
+      +numberofrooms);
+   }
+}
+-----------------------------------------------------------------------
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package testessy1school;
+
+/**
+ *
+ * @author Bryyan
+ */
+public class House extends Building {
+    int numberofbedrooms;
+    double numberofbaths;
+    public int getnumberofbedrooms()
+    {
+        return numberofbedrooms;
+    }
+    public double getnumberofbaths()
+    {
+        return numberofbaths;
+    }
+    House(double squarefeet, int numberofrooms,
+            int numberofbedrooms, double numberofbaths)
+    {
+        super(squarefeet,numberofrooms);
+        this.numberofbedrooms = numberofbedrooms;
+        this.numberofbaths = numberofbaths;
+    }
+    public void display()
+    {
+        super.display();
+        System.out.println("Number of Bedrooms: "+numberofbedrooms+
+        "\nNumber of Baths: "+numberofbaths);
+        
+    }
+}
+----------------------------------------------------------------------------
+
+package testessy1school;
+
+
+public class School extends Building {
+    int numberofclassrooms;
+    String GradeLevel;
+    public int getnumberofclassrooms()
+    {
+        return numberofclassrooms;
+    }
+    public String getGradeLevel()
+    {
+        return GradeLevel;
+    }
+    School(double squarefeet, int numberofrooms,int numberofclassrooms,String GradeLevel)
+    {
+        super(squarefeet,numberofrooms);
+        this.numberofclassrooms = numberofclassrooms;
+        this.GradeLevel = GradeLevel;
+    }
+    public void display()
+    {
+     super.display();
+     System.out.println("Number of Classrooms: "+numberofclassrooms+"Grade Level: "
+    +GradeLevel);
+    }
+}
+________________________________________________________________________________
+
+package insurancequestion2;
+
+
+public class InsuranceQuestion2 {
+
+    public static void main(String[] args) {
+        Insurance life = new Life("Life");
+        Insurance health = new Health("Health");
+        health.setCost();
+        life.setCost();
+        health.display();
+        life.display();
+    }
+    
+}
+------------------------------------------------------------------------------
+package insurancequestion2;
+
+public abstract class Insurance {
+
+    String typeofinsurance;
+    double monthlycost;
+
+    Insurance(String typeofinsurance) {
+        this.typeofinsurance = typeofinsurance;
+    }
+
+    public String gettypeofinsurance() 
+    {
+        return typeofinsurance;
+    }
+
+    public double getmonthlycost() 
+    {
+        return monthlycost;
+    }
+    public abstract void setCost();
+    public abstract void display();
+}
+-----------------------------------------------------------------------------
+
+package insurancequestion2;
+
+
+public class Health extends Insurance implements Copay {
+            public void setCost()
+                {
+                    monthlycost = 196;
+                    
+                }
+    Health(String typeofinsurance)
+    {
+        super(typeofinsurance);
+        
+    }
+    
+    public void display()
+    {
+        System.out.println(typeofinsurance + " Costs $"+ monthlycost);
+        System.out.println("Your Copay is: "+copay);
+    }
+}
+----------------------------------------------------------------------------
+package insurancequestion2;
+
+
+public class Life extends Insurance {
+
+    public void setCost() {
+        monthlycost = 25;
+    }
+
+    Life(String typeofinsurance) {
+        super(typeofinsurance);
+    }
+
+    public void display() {
+        System.out.println(typeofinsurance + " Costs $" + monthlycost);
+
+    }
+}
+
+---------------------------------------------------------------------------
+
+package insurancequestion2;
+
+
+public interface Copay {
+   int copay = 25; 
+}

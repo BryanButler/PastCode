@@ -1,0 +1,89 @@
+1.
+	a.CREATE VIEW major_customer AS SELECT customer_num, customer_name, balance, credit_limit, rep_num FROM customer WHERE credit_limit <= 10000; 
+	
+	b.SELECT customer_num, customer_name, balance, credit_limit FROM major_customer WHERE balance > credit_limit;
+	
+	d.This will work because the only not null field is in the view
+
+2.
+	a. CREATE VIEW part_order AS SELECT p.part_num, p.description, p.price, o.order_num, o.order_date, ol.num_ordered, ol.quoted_price FROM part p, orders o, order_line ol WHERE (o.order_num = ol.order_num) AND (p.part_num = ol.part_num);
+
+	b. SELECT part_num, description, order_num, quoted_price FROM part_order WHERE quoted_price > 100;
+	
+	d. This will not work because not all of the primary keys are utilized in the view
+
+3.
+	a. CREATE VIEW order_total AS SELECT order_num, (num_ordered * quoted_price) AS total FROM order_line ORDER BY order_num;
+
+	b. SELECT order_num, total FROM order_total WHERE total > 1000;
+	
+	d. This will not work because not all of the primary keys are utilized in the view
+
+4.
+	a. GRANT SELECT ON henry.part TO 'ashton'@'localhost';
+
+	b. GRANT INSERT ON henry.orders, henry.order_line TO 'kelly'@'localhost', 'morgan'@'localhost';
+	
+	c. GRANT UPDATE ON henry.part.price TO 'james'@'localhost';
+
+	d. GRANT DELETE ON henry.customers TO 'danielson'@'localhost';
+	
+	e. GRANT SELECT ON henry.customer.customer_num, henry.customer.customer_name, henry.customer.street, henry.customer.city, henry.customer.state, henry.customer.zip TO '*'@'localhost';
+
+	f. GRANT INDEX ON henry.orders TO 'perez'@'localhost';
+	
+	g. GRANT ALTER ON henry.part TO 'washington'@'localhost';
+	
+	h. GRANT ALL PRIVILEGES ON henry.orders.* TO 'grinstead'@'localhost';
+
+5. REVOKE ALL PRIVILEGES ON henry.* TO 'ashton'@'localhost';
+
+
+
+
+
+
+
+
+CREATE VIEW plume AS SELECT book_code, title, type, price FROM book WHERE publisher_code = 'PL';
+SELECT book_code, title, price FROM plume WHERE price < 13;
+This will work because the primary key which is the only not null is in the view
+
+
+CREATE VIEW nonpaperback AS SELECT b.book_code, b.title, p.publisher_name, b.price FROM book b, publisher p WHERE b.publisher_code = p.publisher_code AND b.paperback = 'N';
+SELECT title, publisher_name, price FROM nonpaperback WHERE price < 20;
+This will not work because not all of the primary keys are utilized in the view
+
+CREATE VIEW book_inventory AS SELECT branch_num, sum(on_hand) as units FROM inventory GROUP BY branch_num ORDER BY branch_num;
+SELECT * FROM book_inventory WHERE units > 25;
+This will not work because not all of the primary keys are utilized in the view
+
+GRANT SELECT ON henry.book TO rodriquez;
+GRANT INSERT ON henry.book, henry.publisher TO gomez, liston;
+GRANT UPDATE ON henry.book.price TO andrews, zimmer;
+GRANT SELECT ON henry.book.title, henry.book.book_code, henry.book.price to *;
+GRANT INSERT, DELETE ON henry.publisher TO golden;
+GRANT INDEX ON henry.book TO golden;
+GRANT ALTER ON henry.author TO andrews, golden;
+GRANT ALL PRIVILEGES ON henry.branch, henry.book, henry.inventory to golden;
+
+
+REVOKE ALL PRIVILEGES ON henry.* to andrews;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

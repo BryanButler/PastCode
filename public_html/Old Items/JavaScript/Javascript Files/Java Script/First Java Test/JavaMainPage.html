@@ -1,0 +1,122 @@
+<html>
+	<head>
+	<script src = JavaTestLibrary.js></script>
+
+	</head>
+	<body>
+	<center>
+		<form name = CarOrder>
+			<table border = 1>
+				<tr>
+					<td>First Name</td>
+					<td><input type = text name = txtFirstName></td>
+				</tr>
+				<tr>
+					<td>Last Name</td>
+					<td><input type = text name = txtLastName></td>
+				</tr>
+				<tr>
+					<td>Street Address</td>
+					<td><input type = text name = txtStreetAddress></td>
+				</tr>
+				<tr>
+					<td>City</td>
+					<td><input type = text name = txtCity></td>
+				</tr>
+				<tr>
+					<td>State</td>
+					<td><input type = text name = txtState></td>
+				</tr>
+				<tr>
+					<td>Zip Code</td>
+					<td><input type = text name = txtZipCode></td>
+				</tr>
+
+				<tr></tr>
+
+				<tr>
+					<td>Car Manufacturer</td>
+					<td>
+					<select id = "Manufacturer">
+						<option value = "Ford">Ford</option>
+						<option value = "Chevrolet">Chevrolet</option>
+						<option value = "Honda">Honda</option>
+						<option value = "Mazda">Mazda</option>
+						<option value = "BMW">BMW</option>
+					</select>
+
+
+					</select>
+						
+					</td>
+				</tr>
+
+				<tr>
+					
+					<td>Coupe<input type = radio name = radCarStyle value = 15000>$15000
+					</td>
+					<td>Sedan<input type = radio name = radCarStyle value = 18000>$18000
+					</td>
+					<td>Convertable<input type = radio name = radCarStyle value = 20000,>$20000
+					</td>
+					<td>SUV<input type = radio name = radCarStyle value = 25000>$25000
+					</td>
+				</tr>
+
+				<tr>
+					
+						
+						<td colspan = 4><center>
+						CAR OPTIONS(MAY ADD VALUE)
+						</td>
+						
+					
+				</tr>
+				<tr>
+					
+					<td><input type = checkbox name = chkAC value = 250>Airconditioning $250</td>
+					
+					<td><input type = checkbox name = chkTrans value = -350>Manual Transmition $-350</td>
+				
+					<td><input type = checkbox name = chkSound value = 800>SoundPackage $800</td>
+				</tr>
+				<tr>
+
+					<td><input type = checkbox name = chkWheels value = 1000>Rally Wheels $1000</td>
+				
+					<td><input type = checkbox name = chkTires value = 800>High Perfomance Tires $800</td>
+
+					<td><input type = checkbox name = chkWarrenty value = 2000>Extended Warrenty $2000</td>
+				</tr>
+
+				<tr>
+					<td>
+						<input type = button
+						value = Submit
+						onClick = carcalc()>
+					</td>
+				</tr>
+
+				<tr>
+					<textarea name = txtconfirm
+					rows = 10
+					cols = 40>
+					
+				</textarea>
+
+			</form>
+</table>
+
+
+
+
+
+
+
+	</center>
+	</body>
+
+
+
+
+</html>

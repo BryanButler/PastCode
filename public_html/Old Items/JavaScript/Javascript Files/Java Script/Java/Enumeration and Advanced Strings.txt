@@ -1,0 +1,166 @@
+
+package numbereightenumeration;
+import java.util.Scanner;
+public class NumberEightenumeration {
+    enum DayofWeek {MON,TUES,WEDS,THURS,FRI,SAT,SUN}
+    public static void main(String[] args) {
+        String UserEntry;
+        DayofWeek Inquiry;
+        int position;
+        int[] startingtime = {11,9,10};
+        int[] quittintime = {5,9,6};
+        System.out.println("Please Enter the Abbreviation for the day you wish to know more about ex. MON, TUES");
+        Scanner input = new Scanner(System.in);
+        UserEntry = input.nextLine().toUpperCase();
+        Inquiry = DayofWeek.valueOf(UserEntry);
+        position = Inquiry.ordinal();
+        System.out.println("you entered "+Inquiry+"Number is"+position);
+        if(position<5)
+        {
+            System.out.println("Start Time: "+startingtime[1]+" am\nClosingtime: "+quittintime[1]+" pm");
+        }
+        else if(position == 5)
+        {
+            System.out.println("Start Time: "+startingtime[2]+" am\nClosingtime: "+quittintime[2]+" pm");
+        }
+        else
+        {
+            System.out.println("Start Time: "+startingtime[0]+" am\nClosingtime: "+quittintime[0]+" pm");
+        }
+        
+    }
+    
+}
+
+--------------------------------------------------------------------------------------------------------------
+
+package stringbuilderpractice;
+import java.util.Scanner;
+
+public class StringBuilderPractice {
+    public static void main(String[] args) {
+        StringBuilder Names = new StringBuilder();
+        StringBuilder Address = new StringBuilder();
+        StringBuilder IdNumber = new StringBuilder();
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please enter your name in the following format. John Doe");
+        Names.append(input.nextLine());
+        System.out.println("Please enter your address.");
+        Address.append(input.nextLine());
+        ConfigureID(Names,Address,IdNumber);
+    }
+    public static void ConfigureID(StringBuilder Names, StringBuilder Address,StringBuilder IdNumber)
+    {
+        int y = 0,z=0;
+        for (int x = 0; x < Names.length();++x)
+        {
+            
+            if (Names.charAt(x) == ' ')
+            {
+                y = x;
+                break;
+            }
+        }
+        for (int x = 0; x < Names.length();++x)
+        {
+            
+            if (Names.charAt(x) == ' ')
+            {
+                z = x;
+                break;
+            }
+        }
+        
+        IdNumber.append(Names.charAt(0));
+        IdNumber.append(Names.charAt(y+1));
+        IdNumber.append(Address.substring(0, z-1));
+        //System.out.println(Names.charAt(0)+"\n"+Address+"\n"+Names.charAt(y+1)+"\n"+y +"\n"+ z);
+        System.out.println(IdNumber);
+    }
+}
+------------------------------------------------------------------------------------------------
+
+package arraylistpractice;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class ArrayListPractice {
+
+
+    public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    ArrayList<Employee> EmployeeList = new ArrayList<Employee>();
+    System.out.println("Please enter the number of employees you would like to add.");
+    int numberofees = input.nextInt();
+    for (int cnt = 0; cnt < numberofees; ++cnt)
+    {
+        Employee Melodias = new Employee();
+        System.out.println("Please enter the First name");
+        Melodias.setFirstName(input.next());
+        System.out.println(Melodias.FirstName);
+        System.out.println("Please enter the Last name");
+        Melodias.setLastName(input.next());
+        System.out.println("Please enter the Salary");
+        Melodias.setSalary(input.nextDouble());
+        System.out.println("Please enter the Years of Service");
+        Melodias.setYearsServed(input.nextInt());
+
+        EmployeeList.add(Melodias);
+    }
+    Employee temp = new Employee();
+    for (int cntr = 0; cntr < EmployeeList.size();cntr++)
+    {
+        temp = EmployeeList.get(cntr);
+        System.out.println(temp.FirstName);
+        System.out.println(temp.LastName);
+        System.out.println(temp.Salary);
+        System.out.println(temp.YearsServed);
+        
+    }   
+    }
+    
+}
+------------------------------------------------------------------------------------------------------------------------------
+
+package arraylistpractice;
+
+
+public class Employee {
+    String FirstName,LastName;
+    Double Salary;
+    int YearsServed;
+    public String getFirstName()
+    {
+        return FirstName;
+    }
+    public String getLastName()
+    {
+        return LastName;
+    }
+    public Double getSalary()
+    {
+        return Salary;
+        
+    }
+    public int getYearsServed()
+    {
+        return YearsServed;
+    }
+    public void setFirstName(String FirstName)
+    {
+        this.FirstName = FirstName;
+    }
+    public void setLastName(String LastName)
+    {
+        this.LastName = LastName;
+    }
+    public void setSalary(double Salary)
+    {
+        this.Salary = Salary;
+    }
+    public void setYearsServed(int YearsServed)
+    {
+        this.YearsServed = YearsServed;
+    }
+
+    
+}

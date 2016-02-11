@@ -1,0 +1,191 @@
+<html>
+	<head>
+	<title>Blank Workbench</title>
+	<script>
+		function makeML()
+		{
+			var sound;
+			var part;
+			var descrip;
+			var vehicle;
+			var animal;
+			var story = "";
+
+			person = window.document.myForm.txtPerson.value;
+			vehicle = document.myForm.txtVehicle.value;
+			animal = document.myForm.textAnimal.value;
+
+			descrip = "";
+
+			if (document.myForm.chkEvil.checked==true)
+			{
+				descrip += document.myForm.chkEvil.value;
+				descrip += ", ";
+			}
+
+			if (document.myForm.chkGoofy.checked==true)
+			{
+				descrip += document.myForm.chkGoofy.value;
+				descrip += ", ";
+			}
+
+			if (document.myForm.chkDysfunc.checked==true)
+			{
+				descrip += document.myForm.chkDysfunc.value;
+				descrip += ", ";
+			}
+
+			if (document.myForm.chkWacky.checked==true)
+			{
+				descrip += document.myForm.chkWacky.value;
+				descrip += ", ";
+			}
+		
+
+		for( i = 0; i<=3;i++)
+		{
+			if (document.myForm.optSound[i].checked == true)
+			{
+				sound = document.myForm.optSound[i].value;
+			}
+		}
+	var theSelect = document.myForm.selBody;
+
+	var theOption = theSelect[theSelect.selectedIndex];
+
+	part = theOption.value;
+
+	story = "One day, a person named ";
+	story += person;
+	story += " was walking down the street. Suddenly, "
+	story += person;
+	story += " heard an awful, ";
+	story += descrip;
+	story += "mysterious ";
+	story += sound;
+	story += " sound. "
+	story += person;
+	story += " looked around and saw that the";
+	story += sound;
+	story += " was coming from a ";
+	story += vehicle;
+	story += " careening madly down the street. ";
+	story += person;
+	story += "'s fear turned to terror as";
+	story += person;
+	story += "realised that the ";
+	story += vehicle;
+	story += "was driven by none other than the evil Super-";
+	story += animal;
+	story += "Continued to taunt";
+	story += person;
+	story += "with the horrible"
+	story += sound;
+	story += "noise, but ";
+	story += person;
+	story += "was unconcerned. 'You can't bother me , Super-";
+	story += animal;
+	story += "! I know how to turn the other";
+	story += part;
+	story += "!";
+
+	document.myForm.txtStory.value = story;
+}
+
+
+	
+	</script>
+	</head>
+
+	<body>
+	<center>
+		<h1>Mad Lib<hr></h1>
+		<form name = myForm>
+			<h3>Please enter the following information</h3>
+			<table border = 1>
+				<tr>
+					<td>A person's name</td>
+					<td><input type = text name = txtPerson></td>
+				</tr>
+
+				<tr>
+					<td>description(s)</td>
+					<td>
+						<input type = "checkbox"
+							name = "chkEvil"
+							value = "evil">evil
+						<input type = "checkbox"
+							name = "chkGoofy"
+							value = "goofy">goofy
+						<input type = "checkbox"
+							name = "chkDysfunc"
+							value = "dysfunctional">dysfunctional
+						<input type = "checkbox"
+							name = "chkWacky"
+							value = "wacky">wacky
+					</td>
+				</tr>
+
+				<tr>
+					<td>A silly </td>
+					<td>
+					<input type = "radio"
+						name = "optSound"
+						value = "phht!"> phht!
+					<input type = "radio"
+						name = "optSound"
+						value = "boing!"> boing!
+					<input type = "radio"
+						name = "optSound"
+						value = "whoosh"> whoosh!
+					<input type = "radio"
+						name = "optSound"
+						value = "splat!"> splat!
+					</td>
+				</tr>
+
+
+				<tr>
+					<td>A body part</td>
+					<td>
+						<select name = selBody>
+							<option value = "tooth">tooth</option>
+							<option value = "kidney stone">kidney stone</option>
+							<option value = "cheeck">cheek</option>
+							<option value = "elbow">elbow</option>
+							<option value = "brain">brain</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td>A vehicle</td>
+					<td><input type = text name = txtVehicle></td>
+				</tr>
+
+				<tr>
+					<td>A type of animal</td>
+					<td><input type = text name = textAnimal></td>
+				</tr>
+
+
+				<tr>
+					<td colspan = 2><center>
+						<input type = button
+								value = "click for story"
+								onClick = makeML()>
+					</td>
+				</tr>
+
+			</table>
+			<textarea name = txtStory
+					rows = 10
+					cols = 40
+					wrap>
+			</textarea>
+
+		</form>
+	</center>
+
+
+

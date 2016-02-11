@@ -1,0 +1,173 @@
+
+package changing.color.panes;
+
+
+public class ChangingColorPanes {
+
+
+    public static void main(String[] args) {
+        ThePanes firstframe = new ThePanes();
+        firstframe.setVisible(true);
+    }
+    
+}
+--------------------------------------------------------------------------
+
+package changing.color.panes;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ThePanes extends  JFrame implements ActionListener {
+    int numberofclicks = 0;
+    private JButton colorchanger = new JButton("Change a Color");
+    JPanel N = new JPanel();
+    JPanel E = new JPanel();
+    JPanel S = new JPanel();
+    JPanel W = new JPanel();
+    private Container container = getContentPane();
+    
+    
+    public ThePanes()
+    {
+        frame();
+    }
+    public void frame()
+    {
+        container.setSize(500,500);
+        container.setLayout(new BorderLayout());
+        container.add(N,BorderLayout.NORTH);
+        container.add(E,BorderLayout.EAST);
+        container.add(S,BorderLayout.SOUTH);
+        container.add(W,BorderLayout.WEST);
+        container.add(colorchanger,BorderLayout.CENTER);
+        N.setBackground(Color.red);
+        E.setBackground(Color.yellow);
+        S.setBackground(Color.BLUE);
+        W.setBackground(Color.GREEN);
+        colorchanger.addActionListener(this);
+
+        
+        
+    }
+        public void actionPerformed(ActionEvent e)
+        {
+            if (numberofclicks < 20)
+                ++numberofclicks;
+            switch (numberofclicks)
+            {
+                case 1: N.setBackground(Color.yellow);
+                    break;
+                case 2: E.setBackground(Color.red);
+                    break;
+                case 3: S.setBackground(Color.PINK);
+                    break;
+                case 4: W.setBackground(Color.WHITE);
+                    break;
+                case 5: N.setBackground(Color.red);
+                    break;
+                case 6: E.setBackground(Color.yellow);
+                    break;
+                case 7: S.setBackground(Color.BLUE);
+                    break;
+                case 8: W.setBackground(Color.GREEN);
+                    break;
+                case 9: N.setBackground(Color.yellow);
+                    break;
+                case 10: E.setBackground(Color.red);
+                    break;
+                case 11: S.setBackground(Color.PINK);
+                    break;
+                case 12: W.setBackground(Color.WHITE);
+                    break;
+                case 13: N.setBackground(Color.red);
+                    break;
+                case 14: E.setBackground(Color.yellow);
+                    break;
+                case 15: S.setBackground(Color.BLUE);
+                    break;
+                case 16: W.setBackground(Color.GREEN);
+                    break;
+            }
+        
+    }
+}
+______________________________________________________________________
+
+package jmovingframe;
+
+
+public class JMovingFrame {
+
+
+    public static void main(String[] args) {
+        MEATOFTHEPROGRAM firstframe = new MEATOFTHEPROGRAM();
+        firstframe.setVisible(true);
+    }
+    
+}
+
+-------------------------------------------------------------------
+package jmovingframe;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class MEATOFTHEPROGRAM extends JFrame implements ActionListener {
+
+    JPanel N = new JPanel();
+    JPanel E = new JPanel();
+    JPanel S = new JPanel();
+    JPanel W = new JPanel();
+    JLabel thelabel = new JLabel("Look at me go");
+    Container cont = getContentPane();
+    JButton movestuff = new JButton("Move Stuff");
+    boolean position = true;
+
+    public MEATOFTHEPROGRAM() {
+        frame();
+         
+    }
+    public void frame()
+    {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        cont.setSize(500,500);
+        cont.setLayout(new BorderLayout());
+        cont.add(N,BorderLayout.NORTH);
+        cont.add(S,BorderLayout.SOUTH);
+
+        N.add(thelabel);
+        
+        
+        cont.add(movestuff,BorderLayout.CENTER);
+        movestuff.addActionListener(this);
+        
+        
+        
+        
+        
+    }
+    public void actionPerformed(ActionEvent e)
+    {
+        if(position)
+        {
+            position = false;
+            N.remove(thelabel);
+            S.add(thelabel);
+        }
+        else
+        {
+            position = true;
+            S.remove(thelabel);
+            N.add(thelabel);
+        }
+        
+        cont.repaint();
+        
+        
+    }
+}
+____________________________________________________________________
+
+

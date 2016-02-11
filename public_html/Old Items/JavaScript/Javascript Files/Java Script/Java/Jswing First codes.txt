@@ -1,0 +1,122 @@
+
+package firstjframe;
+
+import javax.swing.*;
+public class FirstJFrame {
+
+
+    public static void main(String[] args) {
+     JFrame songlyrics = new JFrame("Song Lyrics");//titles the box
+     songlyrics.setSize(250,200);//sets the size
+     songlyrics.setVisible(true);//makes it visable
+     songlyrics.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//sets it to clost on x
+     JLabel intereriorlyrics = new JLabel("Like a fella once said, ain't that a kick in the head.");//contents of the box
+     songlyrics.add(intereriorlyrics);//fills the box
+    }
+    
+}
+
+____________________________________________________________________________________________
+
+package secondjframe;
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.JButton;
+public class SecondJFrame {
+
+
+    public static void main(String[] args) {
+       
+       jframez firstframe = new jframez();
+
+    }
+    
+}
+--------------------------------------------------------------------------------
+
+package secondjframe;
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class jframez extends JFrame implements ActionListener {
+    final int WIDTH = 400,HEIGHT = 400; // sets size
+    JButton button = new JButton("Press Me"); // Makes button with the contents
+    JLabel lyrics = new JLabel("Aint that a kick in the head");// adds contents to label variable
+    public jframez()//CONSTRUCTOR
+    {
+        super("POINTLESSBUTTON");//Titles the box
+        setSize(WIDTH,HEIGHT)//sets size
+        setVisible(true);//makes visable
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//close on click
+
+        setLayout(new FlowLayout());//makes it not look terrible
+        add(lyrics);//adds the lyrics variable
+        add(button);//adds the button
+        button.addActionListener(this);//actives that action listener
+    }
+    public void actionPerformed(ActionEvent e)
+    {
+    button.setEnabled(false);//disables button
+    
+    }
+}
+
+____________________________________________________________________________________
+
+package secondjframe;
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.JButton;
+public class SecondJFrame {
+
+
+    public static void main(String[] args) {
+       
+       jframez firstframe = new jframez();
+
+    }
+    
+}
+------------------------------------------------------------------------------------
+package secondjframe;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class jframez extends JFrame implements ActionListener {
+
+    int numberofclicks = 0;
+    final int WIDTH = 400, HEIGHT = 400;
+    JButton button = new JButton("Press Me");
+    JLabel lyrics = new JLabel("Aint that a kick in the head");
+
+    public jframez() {
+        super("POINTLESSBUTTON");
+        setSize(WIDTH, HEIGHT);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        setLayout(new FlowLayout());
+        add(lyrics);
+        add(button);
+        button.addActionListener(this);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        int breakingpoint = 8;//sets breaking point
+        if (numberofclicks > breakingpoint) {
+            button.setEnabled(false);
+            button.setText("Stop Bro");
+        } //if statement breaking button after eight clicks
+        else {
+            numberofclicks++;
+        }//increments the number of clicks each click
+
+    }
+}

@@ -1,0 +1,193 @@
+<html>
+	<head>
+	<title>Blank Workbench</title>
+	<script src="JavaLibrary.js"></script>
+	
+	</head>
+
+	<body>
+	<center>
+		<form name = myForm>
+			<table border = 1>
+
+				<tr>
+					<td>Name</td>
+					<td><input type = text name = txtName ></td>
+				</tr>
+				<tr>
+					<td>Address</td>
+					<td><input type = text name = txtAddress ></td>
+				</tr>
+				<tr>
+					<td>City</td>
+					<td><input type = text name = txtCity ></td>
+				</tr>
+				<tr>
+					<td>Phone</td>
+					<td><input type = text name = txtPhone ></td>
+				</tr>
+				
+				
+				<tr>
+					<td>Size Selection </td>
+					<td>
+					<input type = "radio"
+						name = "optSize"
+						value = "small"> small
+					<input type = "radio"
+						name = "optSize"
+						value = "medium"> medium
+					<input type = "radio"
+						name = "optSize"
+						value = "large"> large
+					<input type = "radio"
+						name = "optSize"
+						value = "Xtra Large"> Xtra_Large
+					</td>
+				</tr>
+
+				<tr>
+					<td>Toppings</td>
+					<td>
+						<input type = "checkbox"
+							name = "chkCheese"
+							value = "cheese">cheese
+						<input type = "checkbox"
+							name = "chkPeperoni"
+							value = "peperoni">peperoni
+						<input type = "checkbox"
+							name = "chkSausage"
+							value = "sausage">sausage
+						<input type = "checkbox"
+							name = "chkMushrooms"
+							value = "mushrooms">mushrooms
+						<input type = "checkbox"
+							name = "chkHam"
+							value = "ham">ham
+						<input type = "checkbox"
+							name = "chkPineapple"
+							value = "pineapple">pineapple
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan = 2><center>
+						<input type = button
+								value = "Submit"
+								onClick = pizzatime()>
+					</td>
+
+				</tr>
+
+
+
+
+
+
+
+
+			</table>
+
+		
+
+</form>
+
+
+
+
+	</center>
+
+<form name = alsomyForm>
+
+<textarea name = txtconfirm
+					rows = 10
+					cols = 40
+					wrap>
+			</textarea>	
+
+
+</form>
+
+
+________________________________________________________________________
+
+
+function pizzatime()
+{
+	var name = document.myForm.txtName.value
+	var address = document.myForm.txtAddress.value
+	var city = document.myForm.txtCity.value
+	var phonenumber = document.myForm.txtPhone.value
+	var pizzasize;
+	var toppings = "";
+	var comfirmation = "";
+
+	for( i = 0; i<=3;i++)
+		{
+			if (document.myForm.optSize[i].checked == true)
+			{
+				pizzasize = document.myForm.optSize[i].value;
+			}
+		}
+
+		if (document.myForm.chkCheese.checked==true)
+			{
+				toppings += document.myForm.chkCheese.value;
+				toppings += ", ";
+			}
+
+			if (document.myForm.chkPeperoni.checked==true)
+			{
+				toppings += document.myForm.chkPeperoni.value;
+				toppings += ", ";
+			}
+
+			if (document.myForm.chkSausage.checked==true)
+			{
+				toppings += document.myForm.chkSausage.value;
+				toppings += ", ";
+			}
+
+			if (document.myForm.chkMushrooms.checked==true)
+			{
+				toppings += document.myForm.chkMushrooms.value;
+				toppings += ", ";
+			}
+			if (document.myForm.chkHam.checked==true)
+			{
+				toppings += document.myForm.chkHam.value;
+				toppings += ", ";
+			}
+
+			if (document.myForm.chkPineapple.checked==true)
+			{
+				toppings += document.myForm.chkPineapple.value;
+				toppings += ", ";
+			}
+
+			comfirmation = "Hello ";
+			comfirmation += name;
+			comfirmation += " you ordered a(n) ";
+			comfirmation += pizzasize;
+			comfirmation += " pizza with ";
+			comfirmation += toppings;
+			comfirmation += ". You live at "
+			comfirmation += address;
+			comfirmation += " and we can reach you at "
+			comfirmation += phonenumber;
+
+			document.alsomyForm.txtconfirm.value = comfirmation
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+		

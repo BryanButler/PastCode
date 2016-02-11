@@ -1,0 +1,57 @@
+var firstnumber,secondnumber;
+
+firstnumber = prompt("What is your first number","Please enter it here");
+secondnumber = prompt("What is your second number","Please enter it here");
+var numberone = eval(firstnumber);
+var numbertwo = eval(secondnumber);
+var numberthree = numberone + numbertwo;
+alert ("This is the summation of your two numbers "+ numberthree);
+______________________________________________________________________________
+var firstnumber,secondnumber;
+
+	firstnumber = prompt("What is your first number","Please enter it here");
+	secondnumber = prompt("What is your second number","Please enter it here");
+	var numberone = eval(firstnumber);
+	var numbertwo = eval(secondnumber);
+	var numberthree = numberone + numbertwo;
+	alert ("This is the summation of your two numbers "+ numberthree);
+	numberthree = numberone - numbertwo;
+	alert ("This is the subtration of your two numbers "+ numberthree);
+	numberthree = numberone * numbertwo;
+	alert ("This is the multiplication of your two numbers "+ numberthree);
+	numberthree = numberone / numbertwo;
+	alert ("This is the division of your two numbers "+ numberthree);
+__________________________________________________________________________________
+var firstanswer,secondanswer,thirdanswer,fourthanswer,fifthanswer,score = 0;
+	firstanswer = prompt("What is 3 + 3","Please enter it here");
+	secondanswer = prompt("What is 4 + 7","Please enter it here");
+	thirdanswer = prompt("What word am I thinking of O H R E S","Please enter it here");//note to make these last thre "fair" one would need to convert them to upper or lower to make sure they preserve a type of unity between the answer and the key.
+	fourthanswer = prompt("What is better pepsi or water","Enter the answer here");
+	fifthanswer = prompt("What's the greatest dessert ever","Enter the answer here");
+
+	if (firstanswer == 6)
+		score++;
+	if (secondanswer == 11)
+		score++;
+	if (thirdanswer == "Horse")
+		score++;
+	if (fourthanswer == "Pepsi")
+		score++;
+	if (fifthanswer == "Pie"){
+		score++;
+		alert ("You got "+score+" out of 5 correct.");
+	}
+	else 
+		alert ("You got "+score+" out of 5 correct.");
+____________________________________________________________________________________
+	var loaded = .5,dicevalue=0;
+	if (loaded < Math.random())
+	{
+		dicevalue = 1;
+		alert ("Dice was loaded on " + dicevalue);
+	}
+	else
+	{
+		dicevalue = Math.ceil(Math.random()*6);
+		alert ("You rolled a "+dicevalue);
+	}

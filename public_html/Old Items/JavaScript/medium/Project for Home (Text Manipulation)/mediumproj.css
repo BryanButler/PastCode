@@ -1,0 +1,47 @@
+.FirstMajorHeading h2 {
+	
+	color: blue;
+}
+.FirstMajorHeading p {
+	color: black;
+}
+.FirstSectionSubs h3 {
+	color: darkblue;
+	margin :0px 0px;
+}
+.FirstSectionSubs p {
+	color: black;
+}
+.SecondMajorHeading h2 {
+	color: blue;
+}
+.SecondMajorHeading p {}
+
+.bold {
+	background-color: red;
+	font-weight: bold;
+}
+
+
+
+
+.pulled {
+  background: #e5e5e5;
+  position: absolute;
+  width: 120px;
+  top: -20px;
+  right: -180px;
+  padding: 12px 5px 12px 10px;
+  font: italic 1.4em "Times New Roman", Times, serif;
+}
+
+.rounded-top {
+  background: transparent url(rounded-top.png) no-repeat scroll left top;
+  width: 160px;
+  padding: 20px 0 0 0;
+}
+.rounded-bottom {
+  background: transparent url(rounded-bottom.png) no-repeat scroll left bottom;
+  width: 120px;
+  padding: 0 20px 20px 20px;
+}

@@ -1,0 +1,3 @@
+Create view Major_Customer (customer_name, balance, credit_limit, repnum) as select customer_name, balance, credit_limit, repnum from rep, customer where repnum = repnum and credit_limit > 10000;
+select customer_number from major_customer where balance > credit_limit;
+ 

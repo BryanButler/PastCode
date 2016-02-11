@@ -1,0 +1,101 @@
+ function makeML()
+		{
+			var sound;
+			var part;
+			var descrip;
+			var vehicle;
+			var animal;
+			var story = "";
+
+			person = window.document.myForm.txtPerson.value;
+			vehicle = document.myForm.txtVehicle.value;
+			animal = document.myForm.textAnimal.value;
+
+			descrip = "";
+
+			if (document.myForm.chkEvil.checked==true)
+			{
+				descrip += document.myForm.chkEvil.value;
+				descrip += ", ";
+			}
+
+			if (document.myForm.chkGoofy.checked==true)
+			{
+				descrip += document.myForm.chkGoofy.value;
+				descrip += ", ";
+			}
+
+			if (document.myForm.chkDysfunc.checked==true)
+			{
+				descrip += document.myForm.chkDysfunc.value;
+				descrip += ", ";
+			}
+
+			if (document.myForm.chkWacky.checked==true)
+			{
+				descrip += document.myForm.chkWacky.value;
+				descrip += ", ";
+			}
+		
+
+		for( i = 0; i<=3;i++)
+		{
+			if (document.myForm.optSound[i].checked == true)
+			{
+				sound = document.myForm.optSound[i].value;
+			}
+		}
+	var theSelect = document.myForm.selBody;
+
+	var theOption = theSelect[theSelect.selectedIndex];
+
+	part = theOption.value;
+
+	story = "One day, a person named ";
+	story += person;
+	story += " was walking down the street. Suddenly, "
+	story += person;
+	story += " heard an awful, ";
+	story += descrip;
+	story += " mysterious ";
+	story += sound;
+	story += " sound. "
+	story += person;
+	story += " looked around and saw that the";
+	story += sound;
+	story += " was coming from a ";
+	story += vehicle;
+	story += " careening madly down the street. ";
+	story += person;
+	story += "'s fear turned to terror as";
+	story += person;
+	story += "realised that the ";
+	story += vehicle;
+	story += "was driven by none other than the evil Super-";
+	story += animal;
+	story += " Continued to taunt";
+	story += person;
+	story += " with the horrible"
+	story += sound;
+	story += " noise, but ";
+	story += person;
+	story += " was unconcerned. 'You can't bother me , Super-";
+	story += animal;
+	story += "! I know how to turn the other";
+	story += part;
+	story += "!";
+
+	document.myForm.txtStory.value = story;
+}
+
+
+function basicaddition(myForm)
+{
+	var a = eval(myForm.textone.value);
+	var b = eval(myForm.texttwo.value);
+	alert(a);
+	alert(b);
+	alert(a+b);
+
+
+}

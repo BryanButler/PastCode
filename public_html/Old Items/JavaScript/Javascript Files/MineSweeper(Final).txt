@@ -1,0 +1,117 @@
+
+package pkgfinal.project.guessing.mines;
+
+public class FinalProjectGuessingMines {
+
+    public static void main(String[] args) {
+        ContainerAndFrame frame1 = new ContainerAndFrame();
+    }
+    
+}
+
+------------------------------------------------
+package pkgfinal.project.guessing.mines;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import java.util.Random;
+
+public class ContainerAndFrame implements ActionListener {
+    Dimension btnbed = new Dimension(60,60);
+    JPanel pnltop = new JPanel();
+    JPanel pnlmiddle = new JPanel();
+    JPanel pnlbottom = new JPanel();
+    JButton[] arybutton = new JButton[20];
+    JPanel[] btnbeds = new JPanel[20];
+    JLabel lbltop = new JLabel("Welcome to mine guess");
+    JLabel lblbottom = new JLabel("Only a few to go");
+    int counter = 0, easydifficulty = 5, mediumdifficulty = 10, harddifficulty = 15;
+    Random randomGenerator = new Random();
+    int bomblocation;
+    GridLayout grids = new GridLayout(5,5);
+
+    
+
+    public ContainerAndFrame() {
+        frame();
+    }
+
+    public void frame() {
+
+        JFrame frmmain = new JFrame("Welcome to the Mine Fields");
+        frmmain.setSize(600, 600);
+        frmmain.setVisible(true);
+        frmmain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmmain.setLayout(new BorderLayout());
+
+
+        pnltop.add(lbltop);
+        pnltop.setSize(100, 500);
+        pnltop.setVisible(true);
+        frmmain.add(pnltop, BorderLayout.NORTH);
+
+        pnlbottom.add(lblbottom);
+        pnlbottom.setSize(100, 500);
+        pnlbottom.setVisible(true);
+        frmmain.add(pnlbottom, BorderLayout.SOUTH);
+
+        pnlmiddle.setLayout(grids);
+        pnlmiddle.setVisible(true);
+        frmmain.add(pnlmiddle, BorderLayout.CENTER);
+        
+        
+        
+
+        
+        for (int x = 0; x < arybutton.length; ++x) {
+            btnbeds[x]= new JPanel();
+            btnbeds[x].setPreferredSize(btnbed);
+            
+            btnbeds[x].setVisible(true);
+            arybutton[x] = new JButton("Button: " + (x + 1));
+            arybutton[x].setBackground(Color.orange);
+            
+            pnlmiddle.add(btnbeds[x]);
+            btnbeds[x].add(arybutton[x]);
+            arybutton[x].addActionListener(this);
+        }
+
+        //Array Scrambler
+        //Collections.shuffle(Arrays.asList(arybutton));
+        bomblocation = randomGenerator.nextInt(20);
+
+        for (int x = 0; x < arybutton.length; ++x) {
+            pnlmiddle.add(arybutton[x]);
+            
+        }
+        frmmain.add(pnlmiddle, BorderLayout.CENTER);
+
+    }//end of the constructor
+    public void actionPerformed(ActionEvent isclicked)
+    {
+        if (isclicked.getSource().equals(arybutton[bomblocation]))
+        {
+             arybutton[bomblocation].setBackground(Color.red);
+             lblbottom.setText("You Lost");
+             lbltop.setText("You Found the Bomb");
+             for (int x = 0;x<arybutton.length;++x)
+             {
+                 arybutton[x].setEnabled(false);
+                 arybutton[x].setText("Try Again");
+             }
+             
+             
+        }
+        else
+        {
+            ++counter;
+            ((JButton) isclicked.getSource()).removeActionListener(this);
+            ((JButton)isclicked.getSource()).setBackground(Color.BLUE);
+            ((JButton)isclicked.getSource()).setText("Safe");
+            lblbottom.setText(String.valueOf(counter)+" safe spots");
+        }
+    }
+    
+}

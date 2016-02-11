@@ -1,0 +1,62 @@
+;var questions = ["What is 3 + 3","What is 4 + 7","What word am I thinking of O H R E S","What is better pepsi or water","What's the greatest dessert ever"];
+
+	var answers = ["6","11","Horse", "Pepsi","Pie"];
+	var score = 0;
+	var i = 0;
+	var ansholder = " ";
+	ansholder = prompt("Hey");
+
+	for (i = 0; i <5 ; ++i)
+	{	
+
+		ansholder = prompt(questions[i]);
+		if (ansholder == answers[i])
+		++score;
+
+	}
+
+	alert("You got "+score);
+_______________________________________________________________________________________________________________________________________________________________
+	var randomnumber = 0, guessedanswer = 0, numberofattempts = 0;
+
+	randomnumber = Math.ceil(Math.random()*6);
+
+	for (numberofattempts = 0; numberofattempts < 5;++numberofattempts)
+	{
+		guessedanswer = prompt("Enter a number between 1-10 until you get the correct answer.","Please enter it here");
+		if (guessedanswer == randomnumber)
+		{
+			alert("You win, congratulations");
+			break;
+
+		}
+		else
+		{
+			
+			alert("You have "+(4-numberofattempts)+" attempts remaining.");
+		}
+
+	}
+
+
+_________________________________________________________________________________________
+	var randomnumber = 0, guessedanswer = 0, numberofattempts = 0;
+
+	randomnumber = Math.ceil(Math.random()*6);
+
+	while(numberofattempts < 5)
+	{
+		guessedanswer = prompt("Enter a number between 1-10 until you get the correct answer.","Please enter it here");
+		if (guessedanswer == randomnumber)
+		{
+			alert("You win, congratulations");
+			break;
+
+		}
+		else
+		{
+			++numberofattempts
+			alert("You have "+(5-numberofattempts)+" attempts remaining.");
+		}
+
+	}

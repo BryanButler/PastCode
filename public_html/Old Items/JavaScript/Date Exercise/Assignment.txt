@@ -1,0 +1,3 @@
+Validate The date of user input
+
+Figure out how to get the data using functions then figure out how to validate it.

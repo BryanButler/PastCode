@@ -1,0 +1,18 @@
+<a href = "https://en.wikipedia.org/wiki/LAMP_(software_bundle)">Linux(LAMP Stack)</a><br />
+						<a href = "https://en.wikipedia.org/wiki/Windows_Server_2008">Windows Server Experience</a><br />
+						<a href = "https://en.wikipedia.org/wiki/Windows_PowerShell">Scripting - Powershell/Bash/Python</a><br />
+						<a href = "https://en.wikipedia.org/wiki/Microsoft_SQL_Server">Microsoft SQL Server</a><br />
+						<a href = "https://en.wikipedia.org/wiki/Internet_Information_Services#Version_7.0">Knowledge of Microsoft IIS7</a><br />
+						<a href = "https://en.wikipedia.org/wiki/Windows_Server_2012">Windows Server</a><br />
+						<a href = "https://en.wikipedia.org/wiki/Denial-of-service_attack#Distributed_attack">Experience dealing with DDOS and application layer attacks (Security)</a><br />
+
+
+
+
+
+						<p><strong>Jeremy Hoffman </strong> &bull; Development operations Team &bull; jeremy.hoffman@blackboard.com &bull; <strong> Blackboard, Inc. </strong>330 Innovation Blvd., Suite 301, State College, PA 16803 &bull; <span class = 'lightgrey'>For more information, visit</span> <a href = "http://www.blackboard.com/">www.blackboard.com</a></p>
+
+
+
+
+						
